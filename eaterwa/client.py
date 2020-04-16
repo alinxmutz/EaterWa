@@ -110,6 +110,15 @@ class EaterWa(object):
         url = self.host + '/getContacts'
         a = self.getContent(url)
         return a
+    
+    @loggedIn
+    def getContact(self, userid):
+        url = self.host + '/getContact'
+        data = {
+            'userid': userid
+        }
+        req = self.postContent(url, data=data)
+        return req
 
     @loggedIn
     def getMyContacts(self):
